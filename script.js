@@ -21,9 +21,13 @@ function getComputerChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    const details = document.querySelector(".details");
+    const scores = document.querySelector(".scores");
+    const winner = document.querySelector(".winner");
+    const resultsContainer = document.querySelector(".results-container");
+    const buttons = document.querySelectorAll("button");
 
     function playRound(humanChoice, computerChoice) {
-        const details = document.querySelector(".details");
         details.textContent = `You played ${humanChoice} and Computer played ${computerChoice}`;
         // if player wins
         if (
@@ -55,24 +59,18 @@ function playGame() {
     }
 
     function updateResults() {
-        const scores = document.querySelector(".scores");
         scores.textContent = `You: ${humanScore} points - Computer: ${computerScore} points`;
     }
 
     function resetGame() {
         humanScore = 0;
         computerScore = 0;
-        const buttons = document.querySelectorAll("button");
         buttons.forEach((button) => (button.disabled = true));
 
         const resetButton = document.createElement("button");
-        const resultsContainer = document.querySelector(".results-container");
         resultsContainer.appendChild(resetButton);
         resetButton.textContent = "Reset Game";
         resetButton.addEventListener("click", () => {
-            const scores = document.querySelector(".scores");
-            const details = document.querySelector(".details");
-            const winner = document.querySelector(".winner");
             scores.textContent = "";
             details.textContent = "";
             winner.textContent = "";
@@ -83,18 +81,15 @@ function playGame() {
 
     function checkForWinner() {
         if (humanScore >= 5) {
-            const winner = document.querySelector(".winner");
             winner.textContent = "You WON!";
             resetGame();
         } else if (computerScore >= 5) {
-            const winner = document.querySelector(".winner");
             winner.textContent = "You LOST!";
             resetGame();
         }
     }
 
     // buttons
-    const buttons = document.querySelectorAll("button");
     buttons.forEach((button) =>
         button.addEventListener("click", () => {
             playRound(button.dataset.choice, getComputerChoice());
