@@ -21,6 +21,11 @@ function getComputerChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    const beats = {
+        Rock: "Scissors",
+        Paper: "Rock",
+        Scissors: "Paper",
+    };
     const details = document.querySelector(".details");
     const scores = document.querySelector(".scores");
     const winner = document.querySelector(".winner");
@@ -29,32 +34,19 @@ function playGame() {
 
     function playRound(humanChoice, computerChoice) {
         details.textContent = `You played ${humanChoice} and Computer played ${computerChoice}`;
-        // if player wins
-        if (
-            (humanChoice === "Rock" && computerChoice === "Scissors") ||
-            (humanChoice === "Paper" && computerChoice === "Rock") ||
-            (humanChoice === "Scissors" && computerChoice === "Paper")
-        ) {
+        if (humanChoice === computerChoice) {
+            details.textContent += " .It's a TIE!";
+        } else if (beats[humanChoice] === computerChoice) {
             // log winning status
             details.textContent += " .You win!";
             // increment player score
             humanScore += 1;
-        }
-        // else if computer wins
-        else if (
-            (computerChoice === "Rock" && humanChoice === "Scissors") ||
-            (computerChoice === "Paper" && humanChoice === "Rock") ||
-            (computerChoice === "Scissors" && humanChoice === "Paper")
-        ) {
+        } else {
             // log losing status
             details.textContent += " .You lose!";
 
             // increment computer score
             computerScore += 1;
-        }
-        // else it's a tie
-        else {
-            details.textContent += " .It's a TIE!";
         }
     }
 
