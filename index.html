@@ -4,16 +4,25 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>RPS</title>
+        <link rel="stylesheet" href="./style.css" />
         <script src="./script.js" defer></script>
     </head>
     <body>
-        <button class="paper-button" data-choice="Paper">Paper</button>
-        <button class="rock-button" data-choice="Rock">Rock</button>
-        <button class="scissors-button" data-choice="Scissors">Scissors</button>
-        <div class="results-container">
-            <p class="scores" aria-live="polite" aria-atomic="true"></p>
-            <div class="details" aria-live="polite" aria-atomic="true"></div>
-            <h3 class="winner" aria-live="assertive" aria-atomic="true"></h3>
-        </div>
+        <main class="app-shell">
+            <h1>Rock Paper Scissors</h1>
+            <p class="subtitle">First to 5 wins</p>
+
+            <div class="controls">
+                <button class="paper-button" data-choice="Paper">Paper</button>
+                <button class="rock-button" data-choice="Rock">Rock</button>
+                <button class="scissors-button" data-choice="Scissors">Scissors</button>
+            </div>
+
+            <div class="results-container">
+                <p class="scores" aria-live="polite" aria-atomic="true"></p>
+                <div class="details" aria-live="polite" aria-atomic="true"></div>
+                <h3 class="winner" aria-live="assertive" aria-atomic="true"></h3>
+            </div>
+        </main>
     </body>
 </html>

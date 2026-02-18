@@ -66,6 +66,7 @@ function playGame() {
             scores.textContent = "";
             details.textContent = "";
             winner.textContent = "";
+            winner.classList.remove("is-win", "is-lose");
             buttons.forEach((button) => (button.disabled = false));
             resetButton.remove();
         });
@@ -74,9 +75,13 @@ function playGame() {
     function checkForWinner() {
         if (humanScore >= 5) {
             winner.textContent = "You WON!";
+            winner.classList.remove("is-lose");
+            winner.classList.add("is-win");
             resetGame();
         } else if (computerScore >= 5) {
             winner.textContent = "You LOST!";
+            winner.classList.remove("is-win");
+            winner.classList.add("is-lose");
             resetGame();
         }
     }
