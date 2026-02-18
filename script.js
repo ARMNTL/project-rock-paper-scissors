@@ -97,7 +97,7 @@ function playGame() {
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) =>
         button.addEventListener("click", () => {
-            playRound(button.textContent, getComputerChoice());
+            playRound(button.dataset.choice, getComputerChoice());
             updateResults();
             checkForWinner();
         })
