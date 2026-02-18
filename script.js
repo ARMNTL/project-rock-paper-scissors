@@ -1,7 +1,7 @@
 // returns a random Rock, Paper or Scissors
 function getComputerChoice() {
     // get a random number from 0 to 2
-    computerRandomChoice = Math.floor(Math.random() * 3);
+    const computerRandomChoice = Math.floor(Math.random() * 3);
 
     // if number is 0 then return Rock
     if (computerRandomChoice === 0) {
